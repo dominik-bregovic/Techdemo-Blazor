@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "BlazorAPI-All-In-One/1.0.0": {
+        "runtime": {
+          "BlazorAPI-All-In-One.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BlazorAPI-All-In-One/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

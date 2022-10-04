@@ -1,0 +1,123 @@
+﻿@page "/"
+@using MyModels.Models
+@using BlazorApiProject.Services;
+@using BlazorApiProject.Services.EmployeeServices;
+@inject IEmployeeService empService;
+@inject NavigationManager NavigationManager;
+
+<PageTitle>All Employees</PageTitle>
+<HeaderComponent></HeaderComponent>
+
+
+@if (@empList == null)
+{
+	<p>Loading.....</p>
+}
+else
+{
+    <div class="table-container">
+        <table class="table ">
+            <thead class="has-background-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+
+                @if (empList.Count != 0)
+                {
+                    @foreach (var emp in empList)
+                    {
+                        <tr>
+                            @foreach (var prop in emp.GetType().GetProperties())
+                            {
+                                var type = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
+                                @if (prop.GetValue(emp, null).ToString() != "" )
+                                {
+                                    string t = @prop.GetValue(emp, null).ToString();
+
+                                    <td class="has-background-danger">
+                                        <input @bind="@t" />
+                                    </td>
+
+
+                                }
+                                else
+                                {
+                                    <td>
+                                        <!-- empty values -->
+                                    </td>
+                                }
+
+                            }
+                            <td>
+                                <button class="btn btn-primary" @onclick="(() => showEmployee(emp.EmpId))"> <i class="oi oi-pencil"></i></button>
+                                <button class="btn btn-primary" @onclick="(() => deleteEmployee(emp.EmpId))"> <i class="oi oi-trash"></i></button>
+                            </td>
+                        </tr>
+
+                    }
+                }
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td>
+                        <label for="Id">New Employeers Id: </label>
+                        <input id ="Id" @bind="ID"/>
+                    </td>
+                    <td>
+                        <label for="Name">New Employeers Name: </label>
+                        <input id="Name" @bind="Name" />
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="(() => createEmployee(ID, Name))"> <i class="oi oi-plus"></i></button>
+                    </td>
+                </tr>
+             </tfoot>
+        </table>
+    </div>
+
+    <Counter></Counter>
+}
+
+
+@code{
+
+    private List<Employee> empList = new List<Employee>();
+    private string ID { get; set; }
+    private string Name { get; set; }
+
+
+    // This Method when to Render the page or components of it
+    protected override async Task OnInitializedAsync(){
+
+        await GetEmployees();
+
+    }
+
+
+    private async Task GetEmployees(){
+
+        empList = await empService.GetEmployee();  // calling the service over interface
+    }
+
+    void showEmployee(int id)
+    {
+        NavigationManager.NavigateTo($"employee/{id}");
+    }
+
+    private async Task createEmployee(string id, string name) {
+        Employee e = new Employee { EmpId = int.Parse(id), Name = name };
+        await empService.CreateEmployee(e);
+        await GetEmployees();
+
+    }
+
+    private async Task deleteEmployee(int id) {
+        await empService.DeleteEmployee(id);
+        await GetEmployees();
+    }
+}
