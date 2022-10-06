@@ -3,7 +3,7 @@
 # Email:            dominik.bregovic@edu.fh-joanneum.at
 # IDE:              Visual Studio 2022
 # Last Change:      06.10.2022
-# Description:      Readme.md to describe the project
+
 
 **Home-Screen:**
 
