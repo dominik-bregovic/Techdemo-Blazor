@@ -5,7 +5,7 @@
 # Last Change:      06.10.2022
 # Description:      Readme.txt to describe the project
 
-Home-Screen:
+**Home-Screen:**
 
 	Describtion: is the Landing Page of our Project and will get Displayed when starting the web-app.
 
@@ -19,7 +19,7 @@ Home-Screen:
 	PS:Please Provide Numbers for the Id because the input is not validated! If You provide letters for the Id you will force an error.
 
 
-Edit-Screen:
+**Edit-Screen:**
 
 	Description: is the page you get navigated to when you click on the Edit-Button on the Home-Screen
 
@@ -29,10 +29,10 @@ Edit-Screen:
 
 
 
-Counter-Screen:
+**Counter-Screen:**
 	Describtion: Is a page where you can click on a Button to increase the Nuber displayed above.
 
 
-Fetch-date:
+**Fetch-data:**
 	describtion: Here we will implement our Calendar over Api calls to the database in order to add Meetings to our calendar.
 
