@@ -1,8 +1,9 @@
-.vs/slnx.sqlite
+
 .ProjectEvaluation
 .Techdemo-Blazor
 .bin
 .obj
 *.dll
 *.exe
+*.slnx.sqlite
 
