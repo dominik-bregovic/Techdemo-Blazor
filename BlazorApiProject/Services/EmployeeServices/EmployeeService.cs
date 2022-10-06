@@ -1,4 +1,14 @@
-﻿using System.Xml.Linq;
+﻿/**
+ * Title:            BlazorApiProject
+ * class:			 EmployeeService.cs
+ * Author:           Dominik Bregovic
+ * Email:            dominik.bregovic@edu.fh-joanneum.at
+ * Semester:         4
+ * Last Change:      06.10.2022
+ * Description:      Here we call our api and check the results of the call.
+ */
+
+
 using MyModels.Models;
 
 namespace BlazorApiProject.Services.EmployeeServices
@@ -16,7 +26,7 @@ namespace BlazorApiProject.Services.EmployeeServices
 
         public async Task<List<Employee>> GetEmployee()
         {
-            var result = await _httpClient.GetFromJsonAsync<List<Employee>>("api/Employee/GetEmployee");
+            var result = await _httpClient.GetFromJsonAsync<List<Employee>>("api/employee");
 
             if (result != null)
             {
@@ -29,7 +39,7 @@ namespace BlazorApiProject.Services.EmployeeServices
         }
         public async Task<Employee> GetSingelEmployee(int id)
         {
-            var result = await _httpClient.GetFromJsonAsync<Employee>($"api/Employee/GetSingelEmployee/{id}");
+            var result = await _httpClient.GetFromJsonAsync<Employee>($"api/employee/{id}");
 
             if (result != null)
             {
@@ -44,32 +54,44 @@ namespace BlazorApiProject.Services.EmployeeServices
 
         public async Task DeleteEmployee(int id)
         {
-             var result = await _httpClient.DeleteAsync($"api/Employee/DeleteEmployee/{id}");
+             var result = await _httpClient.DeleteAsync($"api/employee/{id}");
             
             if (result != null)
             {
-                Console.WriteLine("suceesss//////////////////////////////////////////////" + result.ToString);
+                Console.WriteLine("---suceesss---" + result.ToString);
             }
             else
             {
-                throw new Exception("Delet process failed!");
+                throw new Exception("Delete process failed!");
             }
         }
 
         public async Task CreateEmployee(Employee e)
         {
-            var result = await _httpClient.PostAsJsonAsync("api/Employee/CreateEmployee",e);
-            Console.WriteLine("Result of my Post call ///////////////////////////////////////////");
-            Console.WriteLine(result);
+            var result = await _httpClient.PostAsJsonAsync("api/employee",e);
+            if (result != null)
+            {
+                Console.WriteLine("---suceesss---" + result.ToString);
+            }
+            else
+            {
+                throw new Exception("Creation process failed!");
+            }
         }
 
 
 
-        public async Task UpdateEmployee(int empId, Employee e)
+        public async Task UpdateEmployee(int index, Employee e)
         {
-            var result = await _httpClient.PutAsJsonAsync($"api/Employee/UpdateEmployee/{empId}", e);
-            Console.WriteLine("Result of my put call ///////////////////////////////////////////");
-            Console.WriteLine(result);
+            var result = await _httpClient.PutAsJsonAsync($"api/employee/{index}", e);
+            if (result != null)
+            {
+                Console.WriteLine("---suceesss---" + result.ToString);
+            }
+            else
+            {
+                //throw new Exception("Update process failed!");
+            }
         }
 
        

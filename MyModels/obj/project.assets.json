@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dbregovic\\source\\repos\\BlazorApiProject\\MyModels\\MyModels.csproj",
+      "projectUniqueName": "C:\\Users\\dbregovic\\source\\repos\\Techdemo-Blazor\\MyModels\\MyModels.csproj",
       "projectName": "MyModels",
-      "projectPath": "C:\\Users\\dbregovic\\source\\repos\\BlazorApiProject\\MyModels\\MyModels.csproj",
+      "projectPath": "C:\\Users\\dbregovic\\source\\repos\\Techdemo-Blazor\\MyModels\\MyModels.csproj",
       "packagesPath": "C:\\Users\\dbregovic\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dbregovic\\source\\repos\\BlazorApiProject\\MyModels\\obj\\",
+      "outputPath": "C:\\Users\\dbregovic\\source\\repos\\Techdemo-Blazor\\MyModels\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

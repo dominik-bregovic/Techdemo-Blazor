@@ -1,4 +1,14 @@
-﻿@page "/employee"
+﻿<!--
+// Title:            BlazorApiProject
+// class:			 EmployeeComponent.razor
+// Author:           Dominik Bregovic
+// Email:            dominik.bregovic@edu.fh-joanneum.at
+// Semester:         4
+// Last Change:      06.10.2022
+// Description:      This Page is our specific Employee Page. Here we can update data belonging to the Employee.
+-->
+
+@page "/employee"
 @page "/employee/{id:int}"
 @using MyModels.Models
 @using BlazorApiProject.Services;
@@ -17,7 +27,6 @@ else
 }
 
 
-<!-- Blazor build in Editform, needs a Model-->
 <EditForm Model="emp" OnSubmit="HandleSubmit">
 	<div>
 		<label for="id">Employee ID:</label>
@@ -46,25 +55,21 @@ else
 	{
 		if (Id == null)
 		{
-			//emp = new Employee(0, "Default"); have to create a new hero
-			//emp = new Employee {EmpId = 0, Name = "Error" };
-			btnText = "Save new Hero";
+			btnText = "Save Employee";
 		}
 		else
 		{
 			emp = await empService.GetSingelEmployee((int)Id);
-			btnText = "Update Hero";
+			btnText = "Update Employee";
 			EmpIdAsText = emp.EmpId.ToString();
 		}
 	}
 
 
-
 	async Task HandleSubmit()
 	{
-		Employee e = new Employee {EmpId =  int.Parse(EmpIdAsText), Name = emp.Name};
-		await empService.UpdateEmployee(emp.EmpId, e);
-		emp = await empService.GetSingelEmployee((int)Id);
+		Employee e = new Employee {EmpId =  int.Parse(EmpIdAsText), Name = emp.Name, Index = emp.Index};
+		await empService.UpdateEmployee(emp.Index, e);
 	}
 
 

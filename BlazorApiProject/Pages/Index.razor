@@ -1,4 +1,16 @@
-﻿@page "/"
+﻿<!--
+// Title:            BlazorApiProject
+// class:            Index.razor
+// Author:           Dominik Bregovic
+// Email:            dominik.bregovic@edu.fh-joanneum.at
+// Semester:         4
+// Last Change:      06.10.2022
+// Description:      This Page is our landing page, which fetches data over a api and then renders the results onto the page 
+-->
+
+
+
+@page "/"
 @using MyModels.Models
 @using BlazorApiProject.Services;
 @using BlazorApiProject.Services.EmployeeServices;
@@ -6,8 +18,7 @@
 @inject NavigationManager NavigationManager;
 
 <PageTitle>All Employees</PageTitle>
-<HeaderComponent></HeaderComponent>
-
+<h3>Employers list:</h3>
 
 @if (@empList == null)
 {
@@ -34,15 +45,14 @@ else
                             @foreach (var prop in emp.GetType().GetProperties())
                             {
                                 var type = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
-                                @if (prop.GetValue(emp, null).ToString() != "" )
+                                @if (prop.GetValue(emp, null).ToString() != "" &&
+                                        !ColumnToExclude.Contains(prop.Name, StringComparison.OrdinalIgnoreCase))
                                 {
                                     string t = @prop.GetValue(emp, null).ToString();
 
                                     <td class="has-background-danger">
                                         <input @bind="@t" />
                                     </td>
-
-
                                 }
                                 else
                                 {
@@ -50,11 +60,10 @@ else
                                         <!-- empty values -->
                                     </td>
                                 }
-
                             }
                             <td>
                                 <button class="btn btn-primary" @onclick="(() => showEmployee(emp.EmpId))"> <i class="oi oi-pencil"></i></button>
-                                <button class="btn btn-primary" @onclick="(() => deleteEmployee(emp.EmpId))"> <i class="oi oi-trash"></i></button>
+                                <button class="btn btn-primary" @onclick="(() => deleteEmployee(emp.Index))"> <i class="oi oi-trash"></i></button>
                             </td>
                         </tr>
 
@@ -80,8 +89,7 @@ else
         </table>
     </div>
 
-    <Counter></Counter>
-}
+    }
 
 
 @code{
@@ -89,34 +97,37 @@ else
     private List<Employee> empList = new List<Employee>();
     private string ID { get; set; }
     private string Name { get; set; }
+    public string ColumnToExclude { get; set; } = "Index";
 
 
-    // This Method when to Render the page or components of it
-    protected override async Task OnInitializedAsync(){
-
+    protected override async Task OnInitializedAsync()
+    {
         await GetEmployees();
-
     }
 
 
-    private async Task GetEmployees(){
-
-        empList = await empService.GetEmployee();  // calling the service over interface
+    private async Task GetEmployees()
+    {
+        empList = await empService.GetEmployee();  
     }
+
 
     void showEmployee(int id)
     {
         NavigationManager.NavigateTo($"employee/{id}");
     }
 
-    private async Task createEmployee(string id, string name) {
+
+    private async Task createEmployee(string id, string name) 
+    {
         Employee e = new Employee { EmpId = int.Parse(id), Name = name };
         await empService.CreateEmployee(e);
         await GetEmployees();
-
     }
 
-    private async Task deleteEmployee(int id) {
+
+    private async Task deleteEmployee(int id) 
+    {
         await empService.DeleteEmployee(id);
         await GetEmployees();
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jSOqKPq8Lx0pfu9Wk4Wri25jcwzcb9eGaZTo85G+9mav/Gc3dRZEymUQw0Ahmo3jN5go3hiqWmMIKz4x15Y7TA==",
+  "dgSpecHash": "Z55CmFniNCKvxSEuvsiEEjgvt8ofq80SK5QIlo+nSQkl1gRS7vIsjaOXoDjVCZY/5L0RnsoNKmazWvGAwfYm3g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dbregovic\\source\\repos\\BlazorApiProject\\MyAPI\\MyAPI.csproj",
+  "projectFilePath": "C:\\Users\\dbregovic\\source\\repos\\Techdemo-Blazor\\MyAPI\\MyAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dbregovic\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\dbregovic\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

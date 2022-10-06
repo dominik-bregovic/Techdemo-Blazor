@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "foam/Voh2l0p7+pSQ8e3kPjec6Gh3lfslSOjgMCXsy/WpBf91WNEBRC76JRtnDz1kvtD/slbOKvc3rv9/H4M4w==",
+  "dgSpecHash": "nHOnkqXRHVtZJFt37Q9OFWMnLuP7a7o7eJp6j3hqsWyJKrH5q8dmMmbU8ZIgoO3s8oKL230kM0KeML0NLVXOsA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dbregovic\\source\\repos\\BlazorApiProject\\MyModels\\MyModels.csproj",
+  "projectFilePath": "C:\\Users\\dbregovic\\source\\repos\\Techdemo-Blazor\\MyModels\\MyModels.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

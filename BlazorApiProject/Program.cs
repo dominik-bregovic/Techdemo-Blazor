@@ -1,6 +1,15 @@
+/**
+ * Title:            BlazorApiProject
+ * class:			 Program.cs
+ * Author:           Dominik Bregovic
+ * Email:            dominik.bregovic@edu.fh-joanneum.at
+ * Semester:         4
+ * Last Change:      06.10.2022
+ * Description:      This is our configuration-code. Here we define imports, layouts and error behavior
+ */
+
+
 using BlazorApiProject.Services.EmployeeServices;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,4 +1,14 @@
-﻿using MyModels.Models;
+﻿/**
+ * Title:            BlazorApiProject
+ * class:			 IEmployeeService.cs
+ * Author:           Dominik Bregovic
+ * Email:            dominik.bregovic@edu.fh-joanneum.at
+ * Semester:         4
+ * Last Change:      06.10.2022
+ * Description:      Here we define which api-calls have to be implemented.
+ */
+
+using MyModels.Models;
 
 namespace BlazorApiProject.Services.EmployeeServices
 {
