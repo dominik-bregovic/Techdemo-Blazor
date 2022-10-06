@@ -1,7 +1,7 @@
 # Title:            BlazorApiProject
 # Author:           Dominik Bregovic
 # Email:            dominik.bregovic@edu.fh-joanneum.at
-# Semester:         4
+# IDE:              Visual Studio 2022
 # Last Change:      06.10.2022
 # Description:      Readme.md to describe the project
 
